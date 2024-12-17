@@ -335,6 +335,7 @@ header{
 
 .button--flex{
     display: inline-flex;
+    margin-bottom: 20px;
     align-items: center;
 }
 
