@@ -140,7 +140,7 @@
             <div class="about__data">
                 <p class="about__description">Mon profil en quelques mots. Développeur web full-stack curieux, autonome,
                     rigoureux, j'aime les applications dynamiques, simples, rapides et efficaces.<br>
-                    Age: 19 Years<br>
+                    Age: <span id="age"></span> Years<br>
                     Téléphone: 07/69/69/07/64<br>
                     Nationalitée: Francaise<br>
                     Langues: English, French<br>
@@ -899,6 +899,28 @@
                     emailjs.init('Im54ESXIPdtZoyI_y');
                 })();
             </script>
+            <script>
+                // Votre date de naissance
+                var birthDate = new Date(2003, 7, 29); // Remplacez par votre date de naissance (année, mois-1, jour)
+            
+                // Obtenir la date actuelle
+                var today = new Date();
+                var currentYear = today.getFullYear();
+                var currentMonth = today.getMonth();
+                var currentDay = today.getDate();
+            
+                // Calculer l'âge
+                var age = currentYear - birthDate.getFullYear();
+            
+                // Ajuster si la date d'anniversaire n'est pas encore passée cette année
+                if (currentMonth < birthDate.getMonth() || (currentMonth === birthDate.getMonth() && currentDay < birthDate.getDate())) {
+                    age--;
+                }
+            
+                // Afficher l'âge dans l'élément avec l'id 'age'
+                document.getElementById('age').textContent = age;
+            </script>
+            
             <script type="text/javascript">
                 window.onload = function () {
                     document.getElementById('contact-form').addEventListener('submit', function (event) {
